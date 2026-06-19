@@ -22,6 +22,11 @@ void ACXPlayerController::BeginPlay()
 	FInputModeUIOnly InputModeUIOnly;
 	SetInputMode(InputModeUIOnly);
 
+	if (IsLocalController() == false)
+	{
+		return;
+	}
+
 	if (IsValid(ChatInputWidgetClass) == true)
 	{
 		ChatInputWidgetInstance = CreateWidget<UCXChatInput>(this, ChatInputWidgetClass);
